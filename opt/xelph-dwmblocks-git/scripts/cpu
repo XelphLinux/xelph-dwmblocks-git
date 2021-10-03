@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+echo "^c#3b414d^ ^b#A3BE8C^ CPU^c#abb2bf^ ^b#414753^ $(grep -o "^[^ ]*" /proc/loadavg)%"

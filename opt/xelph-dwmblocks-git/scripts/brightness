@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+backlight="$(brightnessctl info| grep "Current" |awk '{print $NF}'| sed 's/(\(.*\))/\1/g')"
+echo "^c#BF616A^  ^c#BF616A^ $backlight"
