@@ -1,2 +1,12 @@
 #!/usr/bin/env bash
-echo "^c#81A1C1^  ^c#81A1C1^ $(acpi | sed "s/,//g" | awk '{if ($3 == "Discharging"){print $4; exit} else {print $4""}}' | tr -d "\n")"
+battery=$(acpi -b|tee /tmp/batterycheck)
+if [[ ! $(grep -i battery /tmp/batterycheck) ]]; then
+	exit 0
+else
+	if [[ ! $(acpi -a|grep -i adapter|grep -i on-line) ]]; then
+		printf "^c#BF616A^  ^c#BF616A^ "
+	else
+		printf "^c#81A1C1^  ^c#81A1C1^ "
+	fi
+	echo "$(acpi | sed "s/,//g" | awk '{print $4}' | tr -d "\n")"
+fi
