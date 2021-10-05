@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-battery=$(acpi -b|tee /tmp/batterycheck)
-if [[ ! $(grep -i battery /tmp/batterycheck) ]]; then
+if [[ ! $(acpi -b | grep -i battery) ]]; then
 	exit 0
 else
 	if [[ ! $(acpi -a|grep -i adapter|grep -i on-line) ]]; then
