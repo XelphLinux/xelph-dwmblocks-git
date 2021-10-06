@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-volume=$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')
-if [[ ! $(amixer get Master | grep "off") ]]; then
-	echo "^c#EBCB8B^ ﰝ ^c#EBCB8B^ $volume%"
-else
-	echo "^c#EBCB8B^ 遼^c#EBCB8B^ $volume%"
-fi
