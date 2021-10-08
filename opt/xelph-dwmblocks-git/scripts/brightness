@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
+if [[ $(brightnessctl info | grep "Max brightnes" | awk '{print $NF}') == 1 ]]; then
+	exit 0;
+fi
 backlight="$(brightnessctl info| grep "Current" |awk '{print $NF}'| sed 's/(\(.*\))/\1/g')"
 echo "^c#BF616A^  ^c#BF616A^ $backlight"
